@@ -13,7 +13,8 @@ const createRouter = (dependencies) => {
     .get(accountsController.listAccounts);
 
   router.route('/:id')
-    .get(accountsController.getAccount);
+    .get(accountsController.getAccount)
+    .post(accountsController.updateAccount);
 
   return router;  
 };
