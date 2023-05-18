@@ -46,6 +46,22 @@ export default (dependencies) => {
         }
     };
 
+    const verify = async (request, response, next) => {
+        try { 
+        // Input
+        const authHeader = request.headers.token;
+        // Treatment
+        // const accessToken = authHeader.split(" ")[1];   
+        // console.log(accessToken)
+        const user = await accountService.verifyToken(authHeader, dependencies);
+
+        //output
+        next();
+    }catch(err){
+        //Token Verification Failed
+        next(new Error(`Verification Failed ${err.message}`));
+        }
+    };
     const addFavourite = async (request, response, next) => {
         try {
             const { movieId } = request.body;
@@ -73,6 +89,7 @@ export default (dependencies) => {
         listAccounts,
         authenticateAccount,
         getFavourites,
-        addFavourite
+        addFavourite,
+        verify
     };
 };

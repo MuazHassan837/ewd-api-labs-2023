@@ -10,6 +10,9 @@ const createGenresRouter = (dependencies) => {
     router.route('/')
         .get(controller.getMovieGenres);
 
+    router.route('/:id')
+        .get(controller.getMovieGenresName);
+
     return router;
 };
 export default createGenresRouter;
