@@ -5,8 +5,7 @@
   "main": "(index.js)",
   "scripts": {
     "start": "nodemon --exec babel-node index.js",
-    "test": "newman run ./../tests/movies_collection.json -e ./../tests/movies_environment.json --reporters htmlextra,cli --reporter-htmlextra-export ./../tests/reports/report.html"
-
+    "test": "newman run ./../src/tests/movies_collection.json -e ./../src/tests/movies_environment.json --reporters htmlextra,cli --reporter-htmlextra-export ./../src/tests/reports/report.html"
   },
   "author": "MuazHassan837",
   "license": "ISC",
@@ -28,6 +27,8 @@
     "joi": "^17.9.1",
     "jsonwebtoken": "^9.0.0",
     "mongoose": "^7.0.3",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^4.6.3",
     "uniqid": "^5.4.0"
   }
 }
